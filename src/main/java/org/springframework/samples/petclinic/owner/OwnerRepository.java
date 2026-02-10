@@ -25,9 +25,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 /**
- * Repository class for <code>Owner</code> domain objects. All method names are compliant
- * with Spring Data naming conventions so this interface can easily be extended for Spring
- * Data. See:
+ * <code>Owner</code>ドメインオブジェクト用のRepositoryクラス。すべてのメソッド名はSpring Dataの
+ * 命名規則に準拠しているため、このインターフェースはSpring Data用に簡単に拡張できます。 参照：
  * https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.query-creation
  *
  * @author Ken Krebs
@@ -39,26 +38,21 @@ import org.springframework.data.jpa.repository.Query;
 public interface OwnerRepository extends JpaRepository<Owner, Integer> {
 
 	/**
-	 * Retrieve {@link Owner}s from the data store by last name, returning all owners
-	 * whose last name <i>starts</i> with the given name.
-	 * @param lastName Value to search for
-	 * @return a Collection of matching {@link Owner}s (or an empty Collection if none
-	 * found)
+	 * 姓でデータストアから{@link Owner}を取得し、指定された名前で<i>始まる</i>姓を持つ すべてのオーナーを返します。
+	 * @param lastName 検索する値
+	 * @return 一致する{@link Owner}のコレクション（見つからない場合は空のコレクション）
 	 */
 	Page<Owner> findByLastNameStartingWith(String lastName, Pageable pageable);
 
 	/**
-	 * Retrieve an {@link Owner} from the data store by id.
+	 * IDでデータストアから{@link Owner}を取得します。
 	 * <p>
-	 * This method returns an {@link Optional} containing the {@link Owner} if found. If
-	 * no {@link Owner} is found with the provided id, it will return an empty
-	 * {@link Optional}.
+	 * このメソッドは、見つかった場合は{@link Owner}を含む{@link Optional}を返します。
+	 * 指定されたIDで{@link Owner}が見つからない場合は、空の{@link Optional}を返します。
 	 * </p>
-	 * @param id the id to search for
-	 * @return an {@link Optional} containing the {@link Owner} if found, or an empty
-	 * {@link Optional} if not found.
-	 * @throws IllegalArgumentException if the id is null (assuming null is not a valid
-	 * input for id)
+	 * @param id 検索するID
+	 * @return 見つかった場合は{@link Owner}を含む{@link Optional}、見つからない場合は空の{@link Optional}
+	 * @throws IllegalArgumentException IDがnullの場合（nullがIDの有効な入力でないと仮定）
 	 */
 	Optional<Owner> findById(@Nonnull Integer id);
 

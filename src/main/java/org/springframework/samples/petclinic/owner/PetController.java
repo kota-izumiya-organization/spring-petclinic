@@ -132,7 +132,7 @@ class PetController {
 
 		String petName = pet.getName();
 
-		// checking if the pet name already exists for the owner
+		// ペットの名前がオーナーに既に存在するかチェック
 		if (StringUtils.hasText(petName)) {
 			Pet existingPet = owner.getPet(petName, false);
 			if (existingPet != null && !existingPet.getId().equals(pet.getId())) {
@@ -155,14 +155,14 @@ class PetController {
 	}
 
 	/**
-	 * Updates the pet details if it exists or adds a new pet to the owner.
-	 * @param owner The owner of the pet
-	 * @param pet The pet with updated details
+	 * ペットが存在する場合はペットの詳細を更新し、存在しない場合はオーナーに新しいペットを追加します。
+	 * @param owner ペットのオーナー
+	 * @param pet 更新された詳細を持つペット
 	 */
 	private void updatePetDetails(Owner owner, Pet pet) {
 		Pet existingPet = owner.getPet(pet.getId());
 		if (existingPet != null) {
-			// Update existing pet's properties
+			// 既存のペットのプロパティを更新
 			existingPet.setName(pet.getName());
 			existingPet.setBirthDate(pet.getBirthDate());
 			existingPet.setType(pet.getType());
