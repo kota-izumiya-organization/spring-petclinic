@@ -53,11 +53,12 @@ class VisitController {
 	}
 
 	/**
-	 * Called before each and every @RequestMapping annotated method. 2 goals: - Make sure
-	 * we always have fresh data - Since we do not use the session scope, make sure that
-	 * Pet object always has an id (Even though id is not part of the form fields)
-	 * @param petId
-	 * @return Pet
+	 * @RequestMappingアノテーションが付けられた各メソッドの前に呼び出されます。2つの目的があります：
+	 * - 常に新鮮なデータを持つことを保証する
+	 * - セッションスコープを使用しないため、Petオブジェクトが常にidを持つことを保証する
+	 *   （idはフォームフィールドの一部ではありませんが）
+	 * @param petId ペットID
+	 * @return Visit 訪問オブジェクト
 	 */
 	@ModelAttribute("visit")
 	public Visit loadPetWithVisit(@PathVariable("ownerId") int ownerId, @PathVariable("petId") int petId,
@@ -75,15 +76,13 @@ class VisitController {
 		return visit;
 	}
 
-	// Spring MVC calls method loadPetWithVisit(...) before initNewVisitForm is
-	// called
+	// Spring MVCはinitNewVisitFormが呼び出される前にloadPetWithVisit(...)メソッドを呼び出します
 	@GetMapping("/owners/{ownerId}/pets/{petId}/visits/new")
 	public String initNewVisitForm() {
 		return "pets/createOrUpdateVisitForm";
 	}
 
-	// Spring MVC calls method loadPetWithVisit(...) before processNewVisitForm is
-	// called
+	// Spring MVCはprocessNewVisitFormが呼び出される前にloadPetWithVisit(...)メソッドを呼び出します
 	@PostMapping("/owners/{ownerId}/pets/{petId}/visits/new")
 	public String processNewVisitForm(@ModelAttribute Owner owner, @PathVariable int petId, @Valid Visit visit,
 			BindingResult result, RedirectAttributes redirectAttributes) {

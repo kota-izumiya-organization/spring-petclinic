@@ -20,10 +20,9 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 /**
- * <code>Validator</code> for <code>Pet</code> forms.
+ * <code>Pet</code>フォーム用の<code>Validator</code>。
  * <p>
- * We're not using Bean Validation annotations here because it is easier to define such
- * validation rule in Java.
+ * Javaで検証ルールを定義する方が簡単なため、ここではBean Validationアノテーションを使用していません。
  * </p>
  *
  * @author Ken Krebs
@@ -37,24 +36,24 @@ public class PetValidator implements Validator {
 	public void validate(Object obj, Errors errors) {
 		Pet pet = (Pet) obj;
 		String name = pet.getName();
-		// name validation
+		// 名前の検証
 		if (!StringUtils.hasText(name)) {
 			errors.rejectValue("name", REQUIRED, REQUIRED);
 		}
 
-		// type validation
+		// タイプの検証
 		if (pet.isNew() && pet.getType() == null) {
 			errors.rejectValue("type", REQUIRED, REQUIRED);
 		}
 
-		// birth date validation
+		// 生年月日の検証
 		if (pet.getBirthDate() == null) {
 			errors.rejectValue("birthDate", REQUIRED, REQUIRED);
 		}
 	}
 
 	/**
-	 * This Validator validates *just* Pet instances
+	 * このValidatorはPetインスタンス*のみ*を検証します
 	 */
 	@Override
 	public boolean supports(Class<?> clazz) {

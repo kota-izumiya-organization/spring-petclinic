@@ -25,9 +25,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 
 /**
- * Repository class for <code>Vet</code> domain objects All method names are compliant
- * with Spring Data naming conventions so this interface can easily be extended for Spring
- * Data. See:
+ * <code>Vet</code>ドメインオブジェクト用のRepositoryクラス。すべてのメソッド名はSpring Dataの
+ * 命名規則に準拠しているため、このインターフェースはSpring Data用に簡単に拡張できます。
+ * 参照：
  * https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.query-creation
  *
  * @author Ken Krebs
@@ -38,18 +38,18 @@ import java.util.Collection;
 public interface VetRepository extends Repository<Vet, Integer> {
 
 	/**
-	 * Retrieve all <code>Vet</code>s from the data store.
-	 * @return a <code>Collection</code> of <code>Vet</code>s
+	 * データストアからすべての<code>Vet</code>を取得します。
+	 * @return <code>Vet</code>の<code>コレクション</code>
 	 */
 	@Transactional(readOnly = true)
 	@Cacheable("vets")
 	Collection<Vet> findAll() throws DataAccessException;
 
 	/**
-	 * Retrieve all <code>Vet</code>s from data store in Pages
-	 * @param pageable
-	 * @return
-	 * @throws DataAccessException
+	 * データストアからすべての<code>Vet</code>をページ単位で取得します
+	 * @param pageable ページング情報
+	 * @return Vetのページ
+	 * @throws DataAccessException データアクセス例外
 	 */
 	@Transactional(readOnly = true)
 	@Cacheable("vets")
