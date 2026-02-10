@@ -56,7 +56,7 @@ class VisitController {
 	 * @RequestMappingアノテーションが付けられた各メソッドの前に呼び出されます。2つの目的があります： - 常に新鮮なデータを持つことを保証する -
 	 * セッションスコープを使用しないため、Petオブジェクトが常にidを持つことを保証する （idはフォームフィールドの一部ではありませんが）
 	 * @param petId ペットID
-	 * @return Visit 訪問オブジェクト
+	 * @return {@link Visit} 訪問オブジェクト
 	 */
 	@ModelAttribute("visit")
 	public Visit loadPetWithVisit(@PathVariable("ownerId") int ownerId, @PathVariable("petId") int petId,

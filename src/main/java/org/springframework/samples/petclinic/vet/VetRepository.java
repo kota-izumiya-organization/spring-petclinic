@@ -38,7 +38,7 @@ public interface VetRepository extends Repository<Vet, Integer> {
 
 	/**
 	 * データストアからすべての<code>Vet</code>を取得します。
-	 * @return <code>Vet</code>の<code>コレクション</code>
+	 * @return <code>Vet</code>のコレクション
 	 */
 	@Transactional(readOnly = true)
 	@Cacheable("vets")
