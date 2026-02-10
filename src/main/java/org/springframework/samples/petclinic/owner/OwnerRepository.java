@@ -26,8 +26,7 @@ import org.springframework.data.jpa.repository.Query;
 
 /**
  * <code>Owner</code>ドメインオブジェクト用のRepositoryクラス。すべてのメソッド名はSpring Dataの
- * 命名規則に準拠しているため、このインターフェースはSpring Data用に簡単に拡張できます。
- * 参照：
+ * 命名規則に準拠しているため、このインターフェースはSpring Data用に簡単に拡張できます。 参照：
  * https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.query-creation
  *
  * @author Ken Krebs
@@ -39,8 +38,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface OwnerRepository extends JpaRepository<Owner, Integer> {
 
 	/**
-	 * 姓でデータストアから{@link Owner}を取得し、指定された名前で<i>始まる</i>姓を持つ
-	 * すべてのオーナーを返します。
+	 * 姓でデータストアから{@link Owner}を取得し、指定された名前で<i>始まる</i>姓を持つ すべてのオーナーを返します。
 	 * @param lastName 検索する値
 	 * @return 一致する{@link Owner}のコレクション（見つからない場合は空のコレクション）
 	 */

@@ -26,8 +26,7 @@ import java.util.Collection;
 
 /**
  * <code>Vet</code>ドメインオブジェクト用のRepositoryクラス。すべてのメソッド名はSpring Dataの
- * 命名規則に準拠しているため、このインターフェースはSpring Data用に簡単に拡張できます。
- * 参照：
+ * 命名規則に準拠しているため、このインターフェースはSpring Data用に簡単に拡張できます。 参照：
  * https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.query-creation
  *
  * @author Ken Krebs
